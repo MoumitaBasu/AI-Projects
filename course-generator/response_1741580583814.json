@@ -1,0 +1,58 @@
+{
+  "course": {
+    "course_title": "Data Science Fundamentals for MBA Graduates",
+    "description": "This course offers a comprehensive introduction to data science, tailored specifically for MBA graduates. It covers key concepts, tools, and real-world applications of data science in business, aiming to equip learners with the skills necessary to harness the power of data-driven decision-making.",
+    "modules": [
+      {
+        "title": "Introduction to Data Science",
+        "lessons": [
+          {
+            "title": "What is Data Science?",
+            "content": "Data Science is an interdisciplinary field that uses scientific methods, algorithms, and systems to extract insights from both structured and unstructured data. It combines elements from statistics, machine learning, and computer science.",
+            "analogy": "Think of data science as being a detective, where clues (data) are gathered and analyzed to solve mysteries (business problems).",
+            "interactive_exercise": "Reflect on a recent news article that discusses data science and share how the article applies to real-world problems.",
+            "resources": [
+              "Cleveland, W. S. (2001). Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics.",
+              "Patil, DJ., Hammerbacher, J. (2008). 'Building Data Science Teams'"
+            ]
+          },
+          {
+            "title": "The Importance of Data Science in Business",
+            "content": "Data science drives decision-making in businesses by providing insights that are not apparent from raw data alone. This includes predicting market trends, customer behavior, and potential risks.",
+            "analogy": "Data science in business can be compared to navigation systems in cars, guiding decision-makers through complex routes (market conditions) to reach their desired destinations (business goals).",
+            "interactive_exercise": "Identify a process in your current organization where data science could enhance decision-making and describe the potential improvements.",
+            "resources": [
+              "Provost, F., Fawcett, T. (2013). Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking.",
+              "Davenport, T. H., Patil, D. J. (2012). Data Scientist: The Sexiest Job of the 21st Century."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Core Techniques and Tools",
+        "lessons": [
+          {
+            "title": "Data Cleaning and Preprocessing",
+            "content": "Data cleaning involves preparing data for analysis by removing or modifying data that is incorrect, incomplete, irrelevant, duplicated, or improperly formatted.",
+            "analogy": "This is akin to a chef preparing ingredients before cooking, ensuring all are clean, properly sized, and ready to be combined.",
+            "interactive_exercise": "Take a sample dataset and write down steps you would take to clean it.",
+            "resources": [
+              "Wickham, H. (2014). Tidy Data.",
+              "Rahm, E., Do, H. H. (2000). Data Cleaning: Problems and Current Approaches."
+            ]
+          },
+          {
+            "title": "Using Tools like Tableau and PowerBI",
+            "content": "Tableau and PowerBI are tools that allow users to create interactive and shareable dashboards that highlight trends, variations, and patterns in data.",
+            "analogy": "Using these tools is like using high-powered binoculars to spot birds (insights) from afar in a large forest (data).",
+            "interactive_exercise": "Create a simple dashboard using Tableau Public or PowerBI with a provided dataset.",
+            "resources": [
+              "Chabot, C., Hanrahan, P., Stolte, C. (2003). Tableau Software.",
+              "Gartner Magic Quadrant for Analytics and Business Intelligence Platforms."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

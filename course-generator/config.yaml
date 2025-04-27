@@ -1,0 +1,10 @@
+# config.yaml - Configuration for prompts and keywords
+prompts:
+  course_planning: "Create a structured course for {brief}, targeting {audience}, lasting {duration}."
+  research: "Find real-world examples for {topic} from Wikipedia and other sources."
+  content_generation: "Write engaging lessons using plan: {plan} and research: {research}."
+  accessibility_optimization: "Make the following content ADHD/autism-friendly: {content}."
+
+keywords:
+  course_levels: ["Beginner", "Intermediate", "Advanced"]
+  languages: ["English", "Spanish", "French"]
