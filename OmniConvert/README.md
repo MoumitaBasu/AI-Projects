@@ -1,126 +1,166 @@
+# OmniConvert: All-in-One Media Converter
 
-# Document Q&A Bot with Streamlit, LangChain, HuggingFace, and OpenAI
+**OmniConvert** is an intelligent, all-in-one media conversion tool designed to handle a variety of formats. It allows users to convert between audio, text, documents, images, and videos with ease. Whether you're transcribing audio to text, turning text into speech, or converting between file formats, OmniConvert has you covered.
 
-This is an intelligent Document Q&A Bot that allows users to upload documents (PDF or DOCX) and interact with the content via questions and answers. It supports both **OpenAI** and **local HuggingFace models** for Question-Answering (QA), with optional **voice input** and **extracted table visualization**.
+---
 
-## 🛠️ Tech Stack
+## Features
 
-- **Streamlit**: For building the web interface
-- **LangChain**: For document processing and question answering
-- **OpenAI API**: For QA with OpenAI models (e.g., GPT-3.5, GPT-4)
-- **HuggingFace**: For running local models for QA
-- **SpeechRecognition**: For converting voice input to text
-- **pdfplumber**: For extracting tables from PDF files
-- **FAISS**: For efficient semantic search and vector storage
+### Current Features:
+- 🎙️ **Audio/Voice to Text**: Transcribe live or recorded audio to text.
+- 🗣️ **Text/Document to Audio**: Convert text or documents into spoken voice.
 
-## 🚀 Features
+### Coming Soon:
+- 📄 **Chat with Document**: Engage in conversations with uploaded documents.
+- 🖼️ **Image to Text**: Extract text from images.
+- 📹 **Video to Text**: Transcribe video content into text.
+- 🎞️ **Text to Video**: Generate video content from text descriptions.
 
-- **Document Upload**: Upload PDF or DOCX files.
-- **Text and Voice QA**: Ask questions based on the document's content.
-- **Local Model Support**: Choose between OpenAI API or a HuggingFace local model.
-- **File Upload History**: View previously uploaded files.
-- **Conversation History**: Keep track of previous Q&A sessions.
-- **Extracted Table Visualization**: Extract and display tables from PDF documents.
-- **User Authentication**: Secure access with basic authentication.
+---
 
-## 🏁 Getting Started
+## Installation Instructions
 
-### 1. Clone this repository
+Follow these steps to get OmniConvert up and running on your machine.
+
+### 1. Install Chocolatey (if not already installed)
+Run the following command in an elevated PowerShell (Run as Administrator):
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force;
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+2. **Install ffmpeg via Chocolatey**
+    - Open Command Prompt or PowerShell as Administrator and run:
+    ```bash
+    choco install ffmpeg -y
+    ```
+3. **Verify ffmpeg Installation**
+    - Ensure ffmpeg is installed and available on your PATH:
+    ```bash
+    ffmpeg -version
+    ```
+## PyTorch Installation
+
+# Option 1: Install PyTorch (Conda Version)
+
+1. **Create a Conda Environment:**
 
 ```bash
-git clone https://github.com/your-username/Document-QA-Bot.git
-cd Document-QA-Bot
+conda create -n myproject python=3.10
+```
+Replace myproject with the desired project name.
+
+2. **Activate the Environment:**
+
+```bash
+conda activate myproject
 ```
 
-### 2. Create and activate a virtual environment
+3. **Install PyTorch with CUDA:**
 
 ```bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+
+4. **Verify Installation:**
+
+```bash
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+```
+If torch.cuda.is_available() returns True, CUDA is working properly.
+
+# Option 2: Install PyTorch (Virtual Environment Version)
+
+1. **Activate your venv:**
+
+Windows:
+
+```bash
+.\venv\Scripts\activate
+```
+
+macOS/Linux:
+
+```bash
 source venv/bin/activate
 ```
 
-### 3. Install the required dependencies
+2. **Install PyTorch:**
+
+CPU-only version:
 
 ```bash
-pip install -r requirements.txt
+pip install torch torchvision torchaudio
 ```
 
-### 4. Set up your OpenAI API Key
+GPU (CUDA 11.7) version:
 
-Create an `.env` file at the root of the project and add your OpenAI API key:
-
-```text
-OPENAI_API_KEY=your-openai-api-key
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 ```
 
-### 5. Run the Streamlit app
+3. **Verify Installation:**
+
+```bash
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+```
+
+## Common Issues & Solutions
+# Numpy Runtime Error:
+If you encounter the RuntimeError: Numpy is not available, try the following:
+
+1. Reinstall Numpy:
+
+```bash
+pip uninstall numpy -y
+pip install numpy==1.24.4
+```
+
+2. Check PyTorch Install: Ensure your PyTorch version is installed correctly:
+
+```bash
+pip show torch
+```
+
+If it's missing or corrupted, reinstall it:
+
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+```
+
+# Restart Everything:
+
+- Close and reopen your terminal.
+
+- Reactivate your virtual environment.
+
+- Restart your Streamlit app.
+
+## Running the Application
+After completing the setup, you can run the app with the following command:
 
 ```bash
 streamlit run app.py
 ```
 
-This will start the app at `http://localhost:8501` where you can interact with the Document Q&A Bot.
+Open the app in your browser, and choose from various available modes such as:
 
-## 📝 How to Use
+ - Audio/Voice to Text
 
-1. **Authentication**: 
-   - Log in using the **username**: `admin` and **password**: `secret`.
+ - Text/Document to Audio
 
-2. **Upload a Document**: 
-   - Choose a PDF or DOCX file to upload from the sidebar.
-   - The document will be processed, and you can start asking questions based on its content.
+ - Coming Soon: Chat with Document, Image to Text, Video to Text, Text to Video
 
-3. **Ask Questions**:
-   - You can type your question in the **text input** or use **voice input** (via a WAV or MP3 file) for speech-to-text recognition.
+## Technologies Used
+- Python
+- Streamlit
+- PyTorch
+- ffmpeg
+- Conda / venv
 
-4. **Switch Between OpenAI and HuggingFace Models**:
-   - Use the sidebar to choose between **OpenAI models** or a **local HuggingFace model** for question-answering.
+## Contributing
+Feel free to fork this repository, submit issues, or create pull requests. All contributions are welcome!
 
-5. **Extracted Tables**: 
-   - If the uploaded document contains tables, they will be displayed under the **Extracted Tables** section.
-
-6. **History**:
-   - View previously uploaded files and the conversation history from the sidebar.
-
-## ⚙️ Configuration Options
-
-- **Choose Model**: 
-  - Switch between OpenAI or HuggingFace models for QA processing.
-  
-- **OpenAI API Key**: 
-  - Enter your OpenAI API key to use OpenAI models for question answering.
-
-## 🧪 Optional Enhancements
-
-You can add the following features later:
-
-- **File Upload History**: Track and visualize all previously uploaded files.
-- **Speech-to-Text**: Implement speech-to-text for question input.
-- **Table Visualization**: Automatically extract and visualize tables from documents.
-- **User Authentication**: Implement more advanced user authentication and token management.
-
-## 📦 Dependencies
-
-- **streamlit**
-- **langchain**
-- **openai**
-- **transformers**
-- **faiss-cpu**
-- **sentence-transformers**
-- **pdfplumber**
-- **speechrecognition**
-
-## 📝 License
-
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgements
-
-- **Streamlit** for building amazing web apps for machine learning.
-- **LangChain** for making it easy to integrate with large language models.
-- **OpenAI** for providing powerful language models like GPT-3 and GPT-4.
-- **HuggingFace** for making local LLMs available.
-- **SpeechRecognition** for enabling voice input.
