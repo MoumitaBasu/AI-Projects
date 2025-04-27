@@ -1,126 +1,146 @@
+# FAQ Chatbot with OpenAI and FastApi
+This project implements an FAQ chatbot that leverages OpenAI's GPT-3.5 API to provide conversational answers to both frequently asked questions (FAQs) and general user queries. The chatbot also stores conversation history in an SQLite database to improve contextual responses.
 
-# Document Q&A Bot with Streamlit, LangChain, HuggingFace, and OpenAI
+## Features:
+- NLP-enhanced FAQ matching: User queries are preprocessed and semantically matched against a predefined FAQ dataset using sentence embeddings (e.g., sentence-transformers) for fast and accurate responses without always calling GPT.
 
-This is an intelligent Document Q&A Bot that allows users to upload documents (PDF or DOCX) and interact with the content via questions and answers. It supports both **OpenAI** and **local HuggingFace models** for Question-Answering (QA), with optional **voice input** and **extracted table visualization**.
+- Intent classification: Basic NLP models classify user intent (e.g., greeting, info request, help) to determine how to respond — whether to use a canned response, FAQ, or pass to GPT.
 
-## 🛠️ Tech Stack
+- General conversation handling: Leverages OpenAI GPT-3.5 for more complex or open-ended queries with conversation context.
 
-- **Streamlit**: For building the web interface
-- **LangChain**: For document processing and question answering
-- **OpenAI API**: For QA with OpenAI models (e.g., GPT-3.5, GPT-4)
-- **HuggingFace**: For running local models for QA
-- **SpeechRecognition**: For converting voice input to text
-- **pdfplumber**: For extracting tables from PDF files
-- **FAISS**: For efficient semantic search and vector storage
+- Conversation memory: Stores chat history in an SQLite database to maintain context across turns.
 
-## 🚀 Features
+- Preprocessing pipeline: User inputs are cleaned, normalized, and optionally corrected using standard NLP techniques (tokenization, lemmatization, etc.) before matching or sending to GPT.
 
-- **Document Upload**: Upload PDF or DOCX files.
-- **Text and Voice QA**: Ask questions based on the document's content.
-- **Local Model Support**: Choose between OpenAI API or a HuggingFace local model.
-- **File Upload History**: View previously uploaded files.
-- **Conversation History**: Keep track of previous Q&A sessions.
-- **Extracted Table Visualization**: Extract and display tables from PDF documents.
-- **User Authentication**: Secure access with basic authentication.
+- Dockerized: Fully containerized setup for easy deployment on any platform.
 
-## 🏁 Getting Started
+## Tech Stack:
+ - Backend: FastAPI, OpenAI API
+ - Database: SQLite (SQLAlchemy ORM)
+ - Containerization: Docker
+ - Frontend: (Can be added, e.g., Streamlit, if you want to provide a UI for users)
 
-### 1. Clone this repository
+## Requirements:
+- Python 3.7+
+- Docker
+- Docker Compose (if needed)
+- NLP Models: sentence-transformers, spaCy
 
+## Setup Instructions:
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/Document-QA-Bot.git
-cd Document-QA-Bot
+git clone https://github.com/your-username/faq-chatbot.git
 ```
+2. Install dependencies:
 
-### 2. Create and activate a virtual environment
+ - Option 1: Using Docker (Recommended)
+ 
+   - This project is dockerized for easy deployment.
+   
+   - Build the Docker container:
 
-```bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-```
+   ```bash
+   docker-compose build
+   ```
+   - Start the application:
 
-### 3. Install the required dependencies
+   ```bash
+   docker-compose up
+   ```
+ 
+ - Option 2: Local Development (Without Docker)
+ 
+   - Create a virtual environment:
 
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Set up your OpenAI API Key
-
-Create an `.env` file at the root of the project and add your OpenAI API key:
-
-```text
-OPENAI_API_KEY=your-openai-api-key
-```
-
-### 5. Run the Streamlit app
-
-```bash
-streamlit run app.py
-```
-
-This will start the app at `http://localhost:8501` where you can interact with the Document Q&A Bot.
-
-## 📝 How to Use
-
-1. **Authentication**: 
-   - Log in using the **username**: `admin` and **password**: `secret`.
-
-2. **Upload a Document**: 
-   - Choose a PDF or DOCX file to upload from the sidebar.
-   - The document will be processed, and you can start asking questions based on its content.
-
-3. **Ask Questions**:
-   - You can type your question in the **text input** or use **voice input** (via a WAV or MP3 file) for speech-to-text recognition.
-
-4. **Switch Between OpenAI and HuggingFace Models**:
-   - Use the sidebar to choose between **OpenAI models** or a **local HuggingFace model** for question-answering.
-
-5. **Extracted Tables**: 
-   - If the uploaded document contains tables, they will be displayed under the **Extracted Tables** section.
-
-6. **History**:
-   - View previously uploaded files and the conversation history from the sidebar.
-
-## ⚙️ Configuration Options
-
-- **Choose Model**: 
-  - Switch between OpenAI or HuggingFace models for QA processing.
+   ```bash
+   python3 -m venv venv
+   ```
+   
+   - Activate the virtual environment:
+   
+    - On Windows:
   
-- **OpenAI API Key**: 
-  - Enter your OpenAI API key to use OpenAI models for question answering.
+      ```bash
+      venv\Scripts\activate
+      ```
+    - On macOS/Linux:
 
-## 🧪 Optional Enhancements
+      ```bash
+      source venv/bin/activate
+      ```
+   
+   - Install dependencies:
 
-You can add the following features later:
+   ```bash
+   pip install -r frontend/requirements.txt
+   ```
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+   
+   - Set up your .env file (create one in the root directory):
+   OPENAI_API_KEY=your-openai-api-key
+   
+   - Start the application:
 
-- **File Upload History**: Track and visualize all previously uploaded files.
-- **Speech-to-Text**: Implement speech-to-text for question input.
-- **Table Visualization**: Automatically extract and visualize tables from documents.
-- **User Authentication**: Implement more advanced user authentication and token management.
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-## 📦 Dependencies
+## 3. Application URL:
+Once the server is up, the API will be running at http://127.0.0.1:8000
 
-- **streamlit**
-- **langchain**
-- **openai**
-- **transformers**
-- **faiss-cpu**
-- **sentence-transformers**
-- **pdfplumber**
-- **speechrecognition**
+You can interact with the API by sending POST requests to the /ask endpoint with a query as the payload.
 
-## 📝 License
+Example request:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+json
+{
+  "query": "What is your name?"
+}
+Response:
+{
+  "answer": "I am an FAQ chatbot here to assist you with common questions."
+}
 
-## 🙏 Acknowledgements
+## NLP Pipeline & Intelligence:
+FAQ Matching: User queries are semantically matched against faqs.json using vector embeddings for high-accuracy lookup.
 
-- **Streamlit** for building amazing web apps for machine learning.
-- **LangChain** for making it easy to integrate with large language models.
-- **OpenAI** for providing powerful language models like GPT-3 and GPT-4.
-- **HuggingFace** for making local LLMs available.
-- **SpeechRecognition** for enabling voice input.
+Intent Detection: NLP classifies whether the message is a greeting, question, or fallback.
+
+Text Preprocessing: Stop-word removal, lemmatization, normalization.
+
+Sentiment & Entity Extraction (optional): For enhancing response tone or personalization.
+
+Contextual GPT: GPT is used when no FAQ match is found, with recent conversation history sent as context.
+
+## Database:
+The project uses SQLite to store conversation history. The table conversation_history contains the following columns:
+
+ - id: Auto-incrementing primary key.
+ - query: The user's input.
+ - response: The chatbot's response.
+ - role: The role of the speaker (either "user" or "assistant").
+
+To initialize the database, the project automatically creates the necessary tables upon startup. You can inspect the database using SQLite tools or SQLite browser.
+
+## FAQ:
+Q1: How do I interact with the chatbot?
+
+You can send POST requests to the /ask endpoint of the API. The request body should contain a query key with the user's question or statement.
+
+Q2: Does the chatbot remember previous conversations?
+
+Yes, the chatbot saves the conversation history in an SQLite database. This history is used to provide better context in the chatbot’s responses.
+
+Q3: Can I add more FAQs?
+
+Yes! You can easily add more FAQ data by editing the faqs.json file in the root directory. The chatbot will automatically load this data at startup.
+
+Q4: How can I deploy this chatbot to production?
+
+Since the application is dockerized, you can deploy it on any platform that supports Docker. You can use platforms like Heroku, AWS, or DigitalOcean to host the container.
+
+Q5: How does the chatbot handle general conversation?
+
+The chatbot is designed to understand and respond to general statements like greetings or personal introductions. These responses are defined in the general_responses dictionary in the backend.
