@@ -10,8 +10,9 @@ These projects cover a wide range of AI applications, from Natural Language Proc
 | Project | Description | Link |
 |--------|-------------|------|
 | 🎧 **OmniConvert** | An all-in-one media converter for audio, text, images, and video. | [View Project](./OmniConvert) |
-| 🎵 **Lyrics Generator** | LSTM-based text generator that creates song lyrics. | [View Project](./Lyrics%20Generator) |
-| 🧬 **MBTI Personality Prediction** | NLP model to predict Myers–Briggs personality types from text. | [View Project](./MBTI%20Personality%20Prediction) |
+| 📚 **Course Generator App** | A web-based app for generating personalized course outlines using GPT-4. | [View Project](./course-generator) |
+| 🤖 **FAQ Chatbot with OpenAI & FastAPI** | A chatbot that answers FAQs with OpenAI GPT-3.5 and stores conversation history. | [View Project](./faq-chatbot) |
+| 🎁 **E-commerce Gift Recommendation System** | AI-powered system for personalized gift recommendations based on user preferences. | [View Project](./gift-recommender) |
 
 ---
 
@@ -19,23 +20,25 @@ These projects cover a wide range of AI applications, from Natural Language Proc
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/MoumitaBasu/MachineLearningProjects.git
+   git clone https://github.com/MoumitaBasu/AI-Projects.git
    ```
    ```bash
-   cd MachineLearningProjects
+   cd AI-Projects
    ```
 3. Navigate into any project folder.
 4. Follow the instructions in its README to run the code or train models.
 
 ## 🛠 Tech Stack
 
-- Python (NumPy, pandas, scikit-learn, matplotlib, seaborn)
-- TensorFlow / Keras
-- NLP tools (nltk, TF-IDF, regex)
-- Jupyter Notebooks
+- Python (NumPy, pandas, scikit-learn, TensorFlow, PyTorch, OpenAI API)
+- Web Frameworks: FastAPI, Streamlit
+- NLP Tools: OpenAI GPT, sentence-transformers, spaCy
+- Database: SQLite (for storing conversation history)
+- Web Scraping: SerpAPI, BeautifulSoup, requests
+- Containerization: Docker (for easy deployment)
 
 ## 📚 Notes
 
-- All datasets used are publicly available (linked inside each project's README).
-- Each project demonstrates a full ML workflow: EDA → Preprocessing → Modeling → Evaluation.
-- You can extend these projects by adding hyperparameter tuning, better visualizations, or deployment.
+- Each project has its own specific dependencies listed in the README within each folder.
+- The repositories include complete setups, from model training to deployment instructions.
+- You can extend these projects by integrating additional APIs, improving UI/UX, or adding more advanced features like caching or personalized experiences.
