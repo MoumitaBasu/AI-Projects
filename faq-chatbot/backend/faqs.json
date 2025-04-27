@@ -1,0 +1,24 @@
+[
+    {
+        "question": "What is your name?",
+        "answer": "I am an FAQ chatbot here to assist you with common questions."
+    },
+    {
+        "question": "What services do you offer?",
+        "answer": "I help answer frequently asked questions related to our website's products and services."
+    },
+    {
+        "question": "Where are you located?",
+        "answer": "We are located at 123 Main Street, Springfield."
+    },
+    {
+        "question": "Do you offer international shipping?",
+        "answer": "Yes, we offer international shipping to many countries. Check our shipping policy for more details."
+    },
+    {   "question": "What are your business hours?", 
+        "answer": "We are open from 9 AM to 5 PM, Monday to Friday."
+    },
+    {   "question": "How do I contact support?", 
+        "answer": "You can contact support at support@example.com."
+    }
+]
