@@ -1,0 +1,83 @@
+occasions:
+  - Birthday
+  - Anniversary
+  - Graduation
+  - Wedding
+  - Baby Shower
+  - Promotion
+  - Just Because
+
+recipients:
+  - Mom
+  - Dad
+  - Sibling
+  - Friend
+  - Partner
+  - Colleague
+  - Child
+
+interests:
+  - Reading
+  - Music
+  - Painting
+  - Cooking
+  - Gaming
+  - Traveling
+  - Fitness
+  - Photography
+  - DIY & Crafts
+  - Technology
+
+lifestyles:
+  - Introverted
+  - Extroverted
+  - Minimalist
+  - Luxury-Lover
+  - Adventurous
+  - Homebody
+  - Tech-Savvy
+
+values:
+  - Sentimental
+  - Humorous
+  - Practical
+  - Sustainable
+  - Creative
+  - Luxury-Loving
+  - Adventurous
+
+gift_types:
+  - Personalized
+  - Experience
+  - Gadget
+  - Handmade
+  - Luxury
+  - Subscription Box
+
+gift_wraps:
+  - No Wrap
+  - Simple Wrap
+  - Premium Wrap
+  - Eco-Friendly Wrap
+
+ecommerce_sites:
+  - amazon.in
+  - flipkart.com
+  - giftacrossindia.com
+  - perfico.com
+  - sytara.in
+  - etsy.com
+  - snapdeal.com
+  - igp.com
+  - fnp.com
+  - excitinglives.com
+  - tatacliq.com
+  - themancompany.com
+  - themomsco.com
+  - chumbak.com
+  - propshop24.com
+
+models:
+  - llama3.1
+  - llama3.2
+  - mistral

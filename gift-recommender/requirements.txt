@@ -1,0 +1,30 @@
+# Core Dependencies
+python-dotenv==1.0.1
+PyYAML==6.0.1
+streamlit==1.30.0
+torch==2.2.0
+torchvision==0.17.0
+torchaudio==2.2.0
+transformers==4.38.1
+sentencepiece==0.2.0
+protobuf==4.25.3  # Required for Streamlit
+
+# Local AI Models
+langchain-community==0.0.34
+langchain
+ollama==0.1.8
+gpt4all==2.0.1
+
+# Web Scraping & Google Search
+beautifulsoup4==4.12.3
+requests==2.31.0
+googlesearch-python==1.2.3  # Google Search API Wrapper
+google-search-results==1.0.1  # Google Search Results API Wrapper
+lxml==5.1.0  # Faster HTML parsing for BeautifulSoup
+
+# NLP & Sentiment Analysis
+textblob==0.17.1
+nltk==3.8.1
+
+# Other Utilities
+tqdm==4.66.2
