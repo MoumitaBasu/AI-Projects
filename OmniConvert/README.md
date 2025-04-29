@@ -42,7 +42,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
     ```
 ## PyTorch Installation
 
-# Option 1: Install PyTorch (Conda Version)
+### Option 1: Install PyTorch (Conda Version)
 
 1. **Create a Conda Environment:**
 
@@ -70,7 +70,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 ```
 If torch.cuda.is_available() returns True, CUDA is working properly.
 
-# Option 2: Install PyTorch (Virtual Environment Version)
+### Option 2: Install PyTorch (Virtual Environment Version)
 
 1. **Activate your venv:**
 
@@ -107,7 +107,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 ```
 
 ## Common Issues & Solutions
-# Numpy Runtime Error:
+**Numpy Runtime Error:**
 If you encounter the RuntimeError: Numpy is not available, try the following:
 
 1. Reinstall Numpy:
@@ -129,7 +129,7 @@ If it's missing or corrupted, reinstall it:
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
 
-# Restart Everything:
+## Restart Everything:
 
 - Close and reopen your terminal.
 
